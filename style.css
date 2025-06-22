@@ -1,0 +1,63 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #0056b3;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+#nodeValueInput {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+  margin-right: 5px; /* Sedikit spasi */
+}
+
+/* Menggabungkan gaya tombol umum */
+#insertBtn,
+#resetBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 5px; /* Sedikit spasi */
+}
+
+#insertBtn {
+  background-color: #007bff;
+}
+
+#insertBtn:hover {
+  background-color: #0056b3;
+}
+
+/* BARU: Gaya untuk tombol reset */
+#resetBtn {
+  background-color: #dc3545; /* Warna merah */
+}
+
+#resetBtn:hover {
+  background-color: #c82333; /* Warna merah lebih gelap */
+}
+
+#treeCanvas {
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
