@@ -4,22 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Visualisasi Pohon | Web</title>
+    <title>Visualization Tree</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <h1>Visualisasi Game Pohon Biner</h1>
-    <p>Masukkan angka untuk membangun Binary Search Tree secara visual.</p>
+    <p>Bangun Binary Search Tree secara visual dengan gaya retro.</p>
 
-    <div class="controls">
-        <input type="number" id="nodeValueInput" placeholder="Masukkan angka...">
-        <button id="insertBtn">Tambahkan Node</button>
-        <button id="resetBtn">Reset Pohon</button>
+    <div class="main-container">
+
+        <div class="instructions">
+            <h2>Cara Bermain</h2>
+            <ol>
+                <li><strong>Masukkan Angka:</strong> Ketik angka pada kotak input.</li>
+                <li><strong>Tambahkan Node:</strong> Klik tombol "Tambahkan Node".</li>
+                <li><strong>Aturan Pohon:</strong> Angka kecil ke kiri, angka besar ke kanan.</li>
+                <li><strong>Reset Pohon:</strong> Klik "Reset Pohon" untuk mulai dari awal.</li>
+                <p><strong>Kegunaan Tree: </strong>Menemukan informasi spesifik dengan sangat cepat,
+                    Contohnya: Mencari nama teman di kontak ponsel di antara ratusan nama lainnya.</p>
+            </ol>
+        </div>
+
+        <div class="game-container">
+            <div class="controls">
+                <input type="number" id="nodeValueInput" placeholder="Ketik angka...">
+                <button id="insertBtn">Tambahkan Node</button>
+                <button id="resetBtn">Reset Pohon</button>
+            </div>
+            <canvas id="treeCanvas" width="800" height="500"></canvas>
+        </div>
+
     </div>
-
-    <canvas id="treeCanvas" width="1000" height="600"></canvas>
 
     <script src="script.js"></script>
 </body>
