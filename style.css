@@ -1,63 +1,176 @@
+/* Mengimpor font piksel dari Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+/* Palet Warna Retro */
+:root {
+  --bg-color: #f0e6d2; /* Krem lembut */
+  --text-color: #3d3d3d; /* Abu-abu gelap (lebih lembut) */
+  --primary-color: #4a7a4a; /* Hijau retro */
+  --primary-hover: #3e663e;
+  --secondary-color: #c94c4c; /* Merah retro */
+  --secondary-hover: #b33e3e;
+  --border-color: #cccccc;
+  --panel-bg: #ffffff;
+  --canvas-bg: #f5f5f5; /* Latar belakang kanvas sedikit lebih gelap */
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: "Press Start 2P", monospace;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   text-align: center;
   margin: 0;
-  padding: 20px;
+  padding: 30px;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  line-height: 1.6;
 }
 
 h1 {
-  color: #0056b3;
+  color: var(--text-color);
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px var(--border-color);
+}
+
+p {
+  font-size: 0.9em;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Sejajarkan kolom dari atas */
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Penataan untuk panel instruksi dan game */
+.instructions,
+.game-container {
+  flex: 1;
+  background-color: var(--panel-bg);
+  border: 2px solid var(--text-color);
+  border-radius: 5px;
+  padding: 25px;
+  box-shadow: 4px 4px 0px var(--text-color); /* Efek shadow retro yang tegas */
+}
+
+.instructions {
+  max-width: 320px;
+  min-width: 280px;
+  text-align: left;
+}
+
+.game-container {
+  flex: 2; /* Kolom game lebih besar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instructions h2 {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.instructions ol {
+  padding-left: 20px;
+  font-size: 0.8em;
+  line-height: 1.8;
+}
+
+.instructions li {
+  margin-bottom: 15px;
 }
 
 .controls {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 #nodeValueInput {
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  width: 200px;
-  margin-right: 5px; /* Sedikit spasi */
+  padding: 12px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.9em;
+  border: 2px solid var(--text-color);
+  border-radius: 3px;
+  width: 180px;
+  text-align: center;
+  background-color: var(--bg-color);
 }
 
-/* Menggabungkan gaya tombol umum */
+#nodeValueInput:focus {
+  outline: 2px solid var(--primary-color);
+}
+
 #insertBtn,
 #resetBtn {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 12px 20px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.9em;
   color: white;
-  border: none;
-  border-radius: 5px;
+  border: 2px solid var(--text-color);
+  border-radius: 3px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  margin-left: 5px; /* Sedikit spasi */
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-shadow: 2px 2px 0px var(--text-color);
+}
+
+#insertBtn:active,
+#resetBtn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 #insertBtn {
-  background-color: #007bff;
+  background-color: var(--primary-color);
 }
 
-#insertBtn:hover {
-  background-color: #0056b3;
-}
-
-/* BARU: Gaya untuk tombol reset */
 #resetBtn {
-  background-color: #dc3545; /* Warna merah */
-}
-
-#resetBtn:hover {
-  background-color: #c82333; /* Warna merah lebih gelap */
+  background-color: var(--secondary-color);
 }
 
 #treeCanvas {
-  background-color: #ffffff;
-  border: 2px solid #ddd;
-  border-radius: 8px;
+  background-color: var(--canvas-bg);
+  border: 2px solid var(--text-color);
+  border-radius: 3px;
   display: block;
-  margin: 0 auto;
+  image-rendering: pixelated;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Untuk layar kecil */
+@media (max-width: 860px) {
+  body {
+    padding: 15px;
+  }
+
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #nodeValueInput {
+    width: calc(100% - 28px); /* Lebar penuh dikurangi padding dan border */
+  }
 }
